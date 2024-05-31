@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css';
 
-function App() {
-  const [data, setData] = useState('')
+function App () {
+  const [data, setData] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3000/')
@@ -15,16 +14,11 @@ function App() {
       });
   }, []);
 
-
   return (
-    <>
       <div className='App'>
-        <h1>React and Node.js</h1>
-        <p>{data}</p>
+          <ItemList />
       </div>
-    </>
   );
 }
-      
 
-export default App
+export default App;
