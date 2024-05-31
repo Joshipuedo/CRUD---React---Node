@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/crud-react-node', {
+mongoose.connect('mongodb+srv://josirmatortolero:zmnl42ZKlQLz9Ndj@cluster0.qhnksqc.mongodb.net/', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -29,6 +29,9 @@ const itemSchema = new mongoose.Schema({
 
 const Item = mongoose.model('Item', itemSchema);
 
+app.get('/ping', async (req, res) => {
+    res.send([]);
+});
 
 //CRUD routes
 //Create
@@ -61,6 +64,6 @@ app.delete('/api/items/id:', async (req, res) => {
 // Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${port}`)
+    console.log(`Server is running on port ${PORT}`)
 });
 
